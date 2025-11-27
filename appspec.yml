@@ -1,5 +1,7 @@
 version: 0.0
 os: linux
+file_exists_behavior: OVERWRITE
+
 files:
   - source: /
     destination: /var/www/html/backend
@@ -7,12 +9,15 @@ files:
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
+      runas: ubuntu
       timeout: 300
 
   ApplicationStart:
     - location: scripts/start_pm2.sh
+      runas: ubuntu
       timeout: 300
 
   ValidateService:
     - location: scripts/validate.sh
+      runas: ubuntu
       timeout: 60

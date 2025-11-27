@@ -3,17 +3,15 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing backend dependencies..."
-      - npm install
+      - echo "Install not required in build"
   build:
     commands:
-      - echo "Backend build completed"
+      - echo "Build completed"
 
 artifacts:
   files:
     - appspec.yml
     - scripts/**/*
-    - src/**/*
+    - server.js
     - package.json
     - package-lock.json
-  discard-paths: no
