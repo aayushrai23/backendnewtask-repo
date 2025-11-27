@@ -1,0 +1,34 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/backend
+
+permissions:
+  - object: /var/www/backend
+    type:
+      - file
+    owner: ubuntu
+    mode: 755
+
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      runas: ubuntu
+
+  AfterInstall:
+    - location: scripts/after_install.sh
+      runas: ubuntu
+
+  ApplicationStop:
+    - location: scripts/stop.sh
+      runas: ubuntu
+
+  ApplicationStart:
+    - location: scripts/start.sh
+      runas: ubuntu
+
+  ValidateService:
+    - location: scripts/validate.sh
+      runas: ubuntu
