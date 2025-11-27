@@ -3,7 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Install not required in build"
+      - echo "No build step for backend"
+
   build:
     commands:
       - echo "Build completed"
@@ -15,3 +16,4 @@ artifacts:
     - server.js
     - package.json
     - package-lock.json
+  discard-paths: no

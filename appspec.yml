@@ -6,6 +6,15 @@ files:
   - source: /
     destination: /var/www/html/backend
 
+permissions:
+  - object: /var/www/html/backend
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - file
+      - directory
+    mode: 755
+
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
@@ -21,11 +30,3 @@ hooks:
     - location: scripts/validate.sh
       runas: ubuntu
       timeout: 60
-  permissions:
-  - object: /var/www/html/backend
-    owner: ubuntu
-    group: ubuntu
-    type:
-      - file
-      - directory
-    mode: 755

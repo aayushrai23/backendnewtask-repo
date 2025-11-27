@@ -1,12 +1,12 @@
 #!/bin/bash
+set -e
 
 echo "Validating service health..."
 
-# Wait for service to fully boot
+# Allow PM2 app time to boot
 sleep 5
 
-# Replace 3000 with your backend port if different
-curl -f http://localhost:3000 || exit 1
+# Check backend running on port 5000
+curl -f http://localhost:5000 || exit 1
 
 echo "Service is healthy!"
-
