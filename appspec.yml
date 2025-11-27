@@ -21,3 +21,11 @@ hooks:
     - location: scripts/validate.sh
       runas: ubuntu
       timeout: 60
+  permissions:
+  - object: /var/www/html/backend
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - file
+      - directory
+    mode: 755
